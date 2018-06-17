@@ -73,6 +73,7 @@ Transfer：代币SYS数量，最大10000个
 ```
 cleos system newaccount --stake-net "5000 SYS" --stake-cpu "5000 SYS" --buy-ram-kbytes 10000 已有的帐号 新账号名 新账号的公钥
 ```
+*注意：建立新账号时，为新账号开通的资源，将消耗SYS代币。这些消耗，将从已有帐号（父帐号）中扣除。*
 
 成功申请后，通过以下命令，获取该账户信息：
 
