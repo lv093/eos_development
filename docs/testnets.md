@@ -46,11 +46,13 @@ EOS Party 测试网络是由EOSFans基于[EOS DAWN v1.0.1](https://github.com/EO
 启动节点.
 用`docker logs -f --tail=100 party`  查看最新100条日志.
 
-*   如果是服务器节点，则使用以下命令启动
+*   如果是服务器节点，则`第一次`必须使用以下命令启动，同步区块数据。
 ```
 nodeos --delete-all-blocks --genesis-json /opt/eosio/bin/data-dir/genesis.json
 ```
 *注意：必须要使用`--genesis-json`指定块数据文件，否则无法同步*
+
+*   如果因故，同步区块数据停止，则之后只需要执行`nodeos`即可继续同步。
 
 #### 3- 创建帐号
 
