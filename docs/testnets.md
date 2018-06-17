@@ -56,9 +56,26 @@ nodeos --delete-all-blocks --genesis-json /opt/eosio/bin/data-dir/genesis.json
 
 #### 3- 创建帐号
 
-创建账号：请到[这里](http://203.195.171.163:8081)
+在测试网络上需要为该BP帐号创建一个账号：请到[这里](http://203.195.171.163:8081)
+![](http://images.laidingyi.com/18-6-17/24411891.jpg)
 
-网站入口正在开发.
+Account：BP帐号名
+
+Public Key：公钥
+
+Transfer：代币SYS数量，最大10000个
+
+成功申请后，通过以下命令，获取该账户信息：
+
+```
+cleos get account 账号名
+```
+
+通过以下命令，查看该帐号余额
+
+```
+cleos get currency balance eosio.token 帐号名
+```
 
 #### 4- 自助申请成为BP
 
