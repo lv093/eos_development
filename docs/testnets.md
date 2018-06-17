@@ -71,12 +71,18 @@ Transfer：代币SYS数量，最大10000个
 ##### 方法二：如果在Party测试网络上已经有了帐号，可以键入如下命令：
 
 ```
-cleos system newaccount --stake-net "10 SYS" --stake-cpu "10 SYS" --buy-ram-kbytes 10000 已有的帐号 新账号名 新账号的公钥
+cleos system newaccount --stake-net "10 SYS" --stake-cpu "10 SYS" --buy-ram-kbytes 10000 已有的帐号hackathon123 新账号名guqianfeng13 新账号的公钥EOSXXX
 ```
 
 *注意：建立新账号时，为新账号开通的资源，将消耗SYS代币。这些消耗，将从已有帐号（父帐号）中扣除。如以上命令运行后：*
 
 ```
+2498372ms thread-0   main.cpp:428                  create_action        ] result: {"binargs":"304498b46503916930029b6a4de3ac6600409c00"} arg: {"code":"eosio"
+,"action":"buyrambytes","args":{"payer":"hackathon123","receiver":"guqianfeng13","bytes":10240000}} 
+2498378ms thread-0   main.cpp:428                  create_action        ] result: {"binargs":"304498b46503916930029b6a4de3ac66a086010000000000045359530000000
+0a086010000000000045359530000000000"} arg: {"code":"eosio","action":"delegatebw","args":{"from":"hackathon123","receiver":"guqianfeng13","stake_net_quantity"
+:"10.0000 SYS","stake_cpu_quantity":"10.0000 SYS","transfer":false}} 
+
 executed transaction: 9c6fe9e0fc005b35e34c9f46a467617127133a91b062fe3e5449410260b90f8a  336 bytes  9293 us
 #         eosio <= eosio::newaccount            {"creator":"hackathon123","name":"guqianfeng13","owner":{"threshold":1,"keys":[{"key":"EOS8UHLAw1NJ4...
 #         eosio <= eosio::buyrambytes           {"payer":"hackathon123","receiver":"guqianfeng13","bytes":10240000}
