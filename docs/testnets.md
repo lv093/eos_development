@@ -86,7 +86,9 @@ cleos get currency balance eosio.token 帐号名
 
 `cleos wallet import {Private_Key}` 导入私钥
 
-`cleos  system regproducer {producer-name}  {public key} http://{server_ip}:8888`
+`cleos  system regproducer {producer-name}  {public_key} http://{server_ip}:8888`
+
+执行完后以上命令，再运行`cleos system listproducers`，在produducers列表中应该有你的`producer-name`。
 
 #### 5- 给自己投票
 
