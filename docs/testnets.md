@@ -57,6 +57,7 @@ nodeos --delete-all-blocks --genesis-json /opt/eosio/bin/data-dir/genesis.json
 #### 3- 创建帐号
 
 在测试网络上需要为该BP帐号创建一个账号：请到[这里](http://203.195.171.163:8081)
+
 ![](http://images.laidingyi.com/18-6-17/24411891.jpg)
 
 Account：BP帐号名
