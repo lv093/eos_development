@@ -25,9 +25,10 @@ EOS Party 测试网络是由EOSFans基于[EOS DAWN v1.0.1](https://github.com/EO
 
 *   `mkdir -p /data/eos` 创建你的EOS节点数据存储的目录, 也可以是其他目录.
 *   将 [config.ini](https://github.com/eosfansio/EOS-Party-Testnet/blob/master/config.ini) 拷贝到`/data/eos` 并修改四处地方.
-	*   p2p-server-address: 改成你自己的服务器IP和监听的p2p端口, 默认是 IP:9876
+    *   p2p-server-address: 改成你自己的服务器IP和监听的p2p端口, 默认是 IP:9876。如果你不需要被其他节点链接，则无需设置。
     *   agent-name: 改成你自己的标识, 域名或其他.
     *   private-key: 你的密钥对, 建议[创建](https://eosfans.io/tools/generate/)全新的.
+    *   主网1.0.2.2版本后，`private-key`被弃用，改为：`signature-provider = 公钥=KEY:私钥`
     *   producer-name: 节点账户名(12位[12345a-z]字符串).
 
 *   将 [genesis.json](https://github.com/eosfansio/EOS-Party-Testnet/blob/master/genesis.json) 文件拷贝到`/data/eos`目录, 不需要修改.
@@ -43,14 +44,13 @@ EOS Party 测试网络是由EOSFans基于[EOS DAWN v1.0.1](https://github.com/EO
         eosfans/eos:launch-1.0.1 nodeosd.sh --delete-all-blocks  --genesis-json /opt/eosio/bin/data-dir/genesis.json
 ```
 启动节点.
+用`docker logs -f --tail=100 party`  查看最新100条日志.
 
-如果是服务器节点，则使用以下命令启动
+*   如果是服务器节点，则使用以下命令启动
 ```
 nodeos --delete-all-blocks --genesis-json /opt/eosio/bin/data-dir/genesis.json
 ```
 *注意：必须要使用`--genesis-json`指定块数据文件，否则无法同步*
-
-用`docker logs -f --tail=100 party`  查看最新100条日志.
 
 #### 3- 创建帐号
 
