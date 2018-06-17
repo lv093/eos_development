@@ -37,3 +37,4 @@
     * [EOS白皮书（英文）](docs/eos_whitepaper_en.md)
     * [c++ API](docs/cpp_api.md)
     * [HTTP API调用文档](docs/http_api_doc.md)
+    * [通过http api调用push_transaction发送交易](docs/how_to_push_transaction_by_http_api.md)
