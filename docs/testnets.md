@@ -60,9 +60,9 @@ nodeos --delete-all-blocks --genesis-json /opt/eosio/bin/data-dir/genesis.json
 
 ![](http://images.laidingyi.com/18-6-17/24411891.jpg)
 
-Account：BP帐号名
+Account：BP帐号名，即`config.ini`配置文件中`producer-name`
 
-Public Key：公钥
+Public Key：公钥，即`config.ini`配置文件中`signature-provider`中的公钥
 
 Transfer：代币SYS数量，最大10000个
 
