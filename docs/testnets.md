@@ -71,9 +71,27 @@ Transfer：代币SYS数量，最大10000个
 ##### 方法二：如果在Party测试网络上已经有了帐号，可以键入如下命令：
 
 ```
-cleos system newaccount --stake-net "5000 SYS" --stake-cpu "5000 SYS" --buy-ram-kbytes 10000 已有的帐号 新账号名 新账号的公钥
+cleos system newaccount --stake-net "10 SYS" --stake-cpu "10 SYS" --buy-ram-kbytes 10000 已有的帐号 新账号名 新账号的公钥
 ```
-*注意：建立新账号时，为新账号开通的资源，将消耗SYS代币。这些消耗，将从已有帐号（父帐号）中扣除。*
+
+*注意：建立新账号时，为新账号开通的资源，将消耗SYS代币。这些消耗，将从已有帐号（父帐号）中扣除。如以上命令运行后：*
+
+```
+executed transaction: 9c6fe9e0fc005b35e34c9f46a467617127133a91b062fe3e5449410260b90f8a  336 bytes  9293 us
+#         eosio <= eosio::newaccount            {"creator":"hackathon123","name":"guqianfeng13","owner":{"threshold":1,"keys":[{"key":"EOS8UHLAw1NJ4...
+#         eosio <= eosio::buyrambytes           {"payer":"hackathon123","receiver":"guqianfeng13","bytes":10240000}
+#   eosio.token <= eosio.token::transfer        {"from":"hackathon123","to":"eosio.ram","quantity":"153.4432 SYS","memo":"buy ram"}
+#  hackathon123 <= eosio.token::transfer        {"from":"hackathon123","to":"eosio.ram","quantity":"153.4432 SYS","memo":"buy ram"}
+#     eosio.ram <= eosio.token::transfer        {"from":"hackathon123","to":"eosio.ram","quantity":"153.4432 SYS","memo":"buy ram"}
+#   eosio.token <= eosio.token::transfer        {"from":"hackathon123","to":"eosio.ramfee","quantity":"0.7710 SYS","memo":"ram fee"}
+#  hackathon123 <= eosio.token::transfer        {"from":"hackathon123","to":"eosio.ramfee","quantity":"0.7710 SYS","memo":"ram fee"}
+#  eosio.ramfee <= eosio.token::transfer        {"from":"hackathon123","to":"eosio.ramfee","quantity":"0.7710 SYS","memo":"ram fee"}
+#         eosio <= eosio::delegatebw            {"from":"hackathon123","receiver":"guqianfeng13","stake_net_quantity":"10.0000 SYS","stake_cpu_quant...
+#   eosio.token <= eosio.token::transfer        {"from":"hackathon123","to":"eosio.stake","quantity":"20.0000 SYS","memo":"stake bandwidth"}
+#  hackathon123 <= eosio.token::transfer        {"from":"hackathon123","to":"eosio.stake","quantity":"20.0000 SYS","memo":"stake bandwidth"}
+#   eosio.stake <= eosio.token::transfer        {"from":"hackathon123","to":"eosio.stake","quantity":"20.0000 SYS","memo":"stake bandwidth"}
+```
+可以看到，主账户消耗了`153.4432 RAM + 0.7710 RAMFee + 10 + 10 = 174.2142 SYS`
 
 成功申请后，通过以下命令，获取该账户信息：
 
