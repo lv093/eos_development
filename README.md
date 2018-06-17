@@ -15,7 +15,7 @@
     * [在eosio上发行代币](docs/token_exchange_msig.md)
     * [Helloworld合约](docs/Helloworld_contract.md)
     * [井字游戏Tic-tac-toe智能合约](docs/tic-tac-toe_game.md)
-    * [多重索引Table指南](docs/multi_index_table.md)
+    * 多重索引Table指南
     * [随机数发生器](docs/randomization.md)
     * [Dice猜数字游戏](docs/dice_contract.md)
     * [自动充值与提现](docs/exchange_deposit_withdrawal.md)
