@@ -202,7 +202,8 @@ curl --request POST \
 curl --request POST --url http://127.0.0.1:8888/v1/wallet/create --data '"guqianfeng"'
 ```
 **注意:**
-通过http_api建立的钱包，将保存在`~/.local/share/eosio/nodeos/data/`目录下，而不是`~/eosio-wallet/config.ini`中设置的目录。因此，可能发生cleos和http api在不同的钱包目录中操作的情况。（不知道是不是一个bug）
+通过http_api建立的钱包保存位置，和`~/eosio-wallet/config.ini`中设置的目录不一样。
+http_api钱包保存的位置，需要在`~/.local/share/eosio/nodeos/config/config.ini`中设置`wallet-dir`属性。
 
 #### 2- open 
 功能：打开钱包
