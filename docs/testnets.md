@@ -92,9 +92,9 @@ cleos get currency balance eosio.token 帐号名
 
 #### 5- 给自己投票
 
-注册成为BP之后并不会立即出块, 因为你没有票. 可以在水龙头上尝试给自己转一笔EOS(一次最大1万个).
+注册成为BP之后并不会立即出块, 因为你没有票. 可以在水龙头上尝试给自己转一笔SYS(一次最大1万个).
 
-抵押你的1万个EOS:
+抵押你的1万个SYS:
 
 `cleos system delegatebw {producer-name} {producer-name} '5000.0000 SYS' '5000.0000 SYS' --transfer`
 
