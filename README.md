@@ -32,6 +32,7 @@
 * [EOS辞典](docs/eos_dictionary.md)
 * [快速命令查询](docs/command_list.md)
 * [开发与调试工具](docs/tools.md)
+* [视频教程](docs/video_tutorial.md)
 * 附：
     * [EOS白皮书（中文）](docs/eos_whitepaper_cn.md)
     * [EOS白皮书（英文）](docs/eos_whitepaper_en.md)
