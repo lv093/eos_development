@@ -56,7 +56,9 @@ nodeos --delete-all-blocks --genesis-json /opt/eosio/bin/data-dir/genesis.json
 
 #### 3- 创建帐号
 
-在测试网络上需要为该BP帐号创建一个账号：请到[这里](http://203.195.171.163:8081)
+在测试网络上需要为该BP帐号创建一个账号
+
+##### 方法一：如果在Party测试网络上没有任何帐号，则到[这里](http://203.195.171.163:8081)
 
 ![](http://images.laidingyi.com/18-6-17/24411891.jpg)
 
@@ -65,6 +67,12 @@ Account：BP帐号名，即`config.ini`配置文件中`producer-name`
 Public Key：公钥，即`config.ini`配置文件中`signature-provider`中的公钥
 
 Transfer：代币SYS数量，最大10000个
+
+##### 方法二：如果在Party测试网络上已经有了帐号，可以键入如下命令：
+
+```
+cleos system newaccount --stake-net "5000 SYS" --stake-cpu "5000 SYS" --buy-ram-kbytes 10000 已有的帐号 新账号名 新账号的公钥
+```
 
 成功申请后，通过以下命令，获取该账户信息：
 
