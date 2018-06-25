@@ -35,3 +35,13 @@
 [通过RPC连接前端与区块链](https://www.youtube.com/watch?v=bXtXQm3zcPU)
 
 教程源码：[点此获取](https://github.com/JackDiSalvatore/WebDev/tree/master/EOSTest1)
+
+### 三、《在EOS主网上创建一个EOS账户》
+简介：
+
+介绍如何通过Scatter钱包以及[eostoolkit.io](https://eostoolkit.io/create)创建一个EOS账户。
+
+由于EOS特殊的机制，您需要首先拥有一个有EOS代币的EOS账户，才能为其他人创建EOS账户。
+
+视频：
+[在EOS主网上创建一个EOS账户](https://www.youtube.com/watch?v=Q4knOqiwDsU)
