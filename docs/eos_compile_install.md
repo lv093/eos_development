@@ -12,8 +12,16 @@ git clone https://github.com/EOSIO/eos --recursive
 cd eos
 ./eosio_build.sh
 ```
+以上过程大概需要20-30分钟
 
-#### 第三步：验证安装是否成功
+#### 第三步：安装包
+```
+cd ../build
+make install
+```
+完成安装
+
+#### 第四步：验证安装是否成功
 首先，运行mongod，在Linux系统中，运行：
 ```
 ~/opt/mongodb/bin/mongod -f ~/opt/mongodb/mongod.conf &
@@ -24,7 +32,6 @@ cd eos
 ```
 然后，运行以下命令，用于检验eosio是否安装成功：
 ```
-cd build
 make test
 ```
 
