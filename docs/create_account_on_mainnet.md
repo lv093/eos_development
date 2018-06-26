@@ -113,7 +113,7 @@ cleos -u https://api.cypherglass.com get currency balance eosio.token Alice的�
 然后，`Alice`用下面命令为`Bob`创建新账号：
 
 ```
-cleos -u https://api.cypherglass.com system newaccount -x 1000 --stake-net "0.1 EOS" --stake-cpu "0.1 EOS" --buy-ram-kbytes 8 Alice账号名 Bob账号名
+cleos -u https://api.cypherglass.com system newaccount -x 1000 --stake-net "0.1 EOS" --stake-cpu "0.1 EOS" --buy-ram-kbytes 8 Alice账号名 Bob账号名 Bob的owner公钥 [Bob的active公钥] 
 ```
 
 一会，`Bob`帐号会被建立，通过以下命令查看`Bob`的账户余额：
