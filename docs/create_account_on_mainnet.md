@@ -8,7 +8,7 @@ EOS主网已经上线，本教程用来说明如何通过cleos工具来创建一
 
 * 拥有一个EOS账户，有自己的公钥/私钥对，并在这个账户中存有一些EOS代币。
 
-如果`Alice`不想安装`cleos`工具，可以使用Scatter钱包结合[eostoolkit工具](https://eostoolkit.io/create)创建，[参考英文视频教程](https://www.youtube.com/watch?v=Q4knOqiwDsU)
+如果`Alice`不想安装`cleos`工具，可以使用Scatter钱包结合[eostoolkit工具](https://eostoolkit.io/create)创建，[参考英文视频教程](https://www.youtube.com/watch?v=Q4knOqiwDsU)。
 
 另外，也可以使用[mytokenpocket APP](https://www.mytokenpocket.vip/)，该软件可以创建账户。
 
