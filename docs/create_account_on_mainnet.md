@@ -133,3 +133,8 @@ cleos -u https://api.cypherglass.com get currency balance eosio.token Bob账号
 ```
 
 ### Binggo，完成！
+
+可以打开[eospark](https://eospark.com/)，输入`Bob`的账号名，或者公钥，查看该帐号是否已经成功创建，以及钱包内的EOS数量。
+
+cleos -u https://api.cypherglass.com transfer Alice账号 Bob账号 "1.0 EOS"打开
+cleos -u https://api.cypherglass.com transfer Alice账号 Bob账号 "1.0 EOS"
