@@ -10,7 +10,7 @@ EOS主网已经上线，本教程用来说明如何通过cleos工具来创建一
 
 如果`Alice`不想安装`cleos`工具，可以使用Scatter钱包结合[eostoolkit工具](https://eostoolkit.io/create)创建，[参考英文视频教程](https://www.youtube.com/watch?v=Q4knOqiwDsU)
 
-#### 链接主网
+#### 一、链接主网
 
 下面列了一些节点链接：
 
@@ -47,7 +47,7 @@ cleos -u https://eos.greymass.com get info
 
 以上说明，当前块高度为`2644635`，由超级节点`eosbeijingbp`产出。
 
-#### Alice创建钱包
+#### 二、Alice创建钱包
 
 如果是第一次操作，`Alice`需要创建一个钱包。(如果已经创建了，则可以跳过本步骤）
 
@@ -79,7 +79,7 @@ cleos -u https://eos.greymass.com get accounts Alice公钥
 cleos -u https://eos.greymass.com get account Alice账号名
 ```
 
-#### Bob创建私钥对
+#### 三、Bob创建私钥对
 
 `Bob`需要自己操作，创建一个私钥对，命令：
 
@@ -96,7 +96,7 @@ Public key: EOS8hk*********
 
 `Bob`需要将以上两个密钥对保存在安全的地方，然后将公钥`Public key`给`Alice`
 
-#### Alice为Bob创建帐号
+#### 四、Alice为Bob创建帐号
 
 `Alice`为`Bob`创建帐号，意味着`Alice`把自己的一部分计算资源分配给了`Bob`，所以需要消耗EOS，笔者测试，如果按以下配置创建帐号的话，需要消耗：0.32左右个EOS。
 
@@ -132,4 +132,4 @@ cleos -u https://api.cypherglass.com transfer Alice账号 Bob账号 "1.0 EOS"
 cleos -u https://api.cypherglass.com get currency balance eosio.token Bob账号
 ```
 
-Binggo，完成！
+### Binggo，完成！
