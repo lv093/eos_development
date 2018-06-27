@@ -104,7 +104,7 @@ cleos -u https://eos.greymass.com get account 账户名
 #### 二、新建账户
 
 ```
-cleos -u https://eos.greymass.com system newaccount --stake-net "1 EOS" --stake-cpu "1 EOS" --buy-ram-kbytes 1000 主账号 新账户 新账户的owner公钥 [新账户的active公钥]
+cleos -u https://eos.greymass.com system newaccount --stake-net "0.01 EOS" --stake-cpu "0.01 EOS" --buy-ram-kbytes 10 主账号 新账户 新账户的owner公钥 [新账户的active公钥]
 ```
 
 #### 三、列出所有BP
