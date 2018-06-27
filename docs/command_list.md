@@ -93,16 +93,18 @@ nodeos
 
 ## 主网操作命令速查
 
+*主账号与子帐号：EOS采取主账号为子帐号开户，并且分配资源的方式。如果主账号为子帐号分配了资源，则主账号的减少=子帐号的增加*
+
 #### 一、查看资源
 
 ```
-cleos -u https://eos.greymass.com get account guqianfeng11
+cleos -u https://eos.greymass.com get account 账户名
 ```
 
 #### 二、新建账户
 
 ```
-cleos -u https://eos.greymass.com system newaccount --stake-net "10 EOS" --stake-cpu "10 EOS" --buy-ram-kbytes 10000 guqianfeng11 新账户 新账户的owner公钥 [新账户的active公钥]
+cleos -u https://eos.greymass.com system newaccount --stake-net "1 EOS" --stake-cpu "1 EOS" --buy-ram-kbytes 1000 主账号 新账户 新账户的owner公钥 [新账户的active公钥]
 ```
 
 #### 三、列出所有BP
@@ -114,44 +116,44 @@ cleos -u https://eos.greymass.com system listproducers
 #### 四、购买RAM
 
 ```
-cleos -u https://eos.greymass.com system buyram guqianfeng11 guqianfeng11 "1 EOS” 
+cleos -u https://eos.greymass.com system buyram 主账号 子帐号 "1 EOS” 
 ```
 
 #### 五、卖出RAM
 
 ```
-cleos -u https://eos.greymass.com system sellram guqianfeng11 RAM字节数
+cleos -u https://eos.greymass.com system sellram 卖出帐号 RAM字节数
 ```
 
 #### 六、抵押net和cpu资源
 
 ```
-cleos -u https://eos.greymass.com system delegatebw guqianfeng11 guqianfeng11 "1 EOS" "1 EOS”
+cleos -u https://eos.greymass.com system delegatebw 主账号 子帐号 "1 EOS" "1 EOS”
 ```
 第一个1 EOS是net资源，第二个1 EOS是cpu资源
 
 #### 七、取消抵押net和cpu资源
 
 ```
-cleos -u https://eos.greymass.com system undelegatebw guqianfeng11 guqianfeng11 "1 EOS" "1 EOS”
+cleos -u https://eos.greymass.com system undelegatebw 主账号 子帐号 "1 EOS" "1 EOS”
 ```
 第一个1 EOS是net资源，第二个1 EOS是cpu资源
 
 #### 八、列出帐号的net和cpu资源
 
 ```
-cleos -u https://eos.greymass.com system listbw guqianfeng11
+cleos -u https://eos.greymass.com system listbw 账号名
 ```
 
 #### 九、竞拍账号名
 
 ```
-cleos -u https://eos.greymass.com system bidname guqianfeng11 taobao "2.145 EOS”
+cleos -u https://eos.greymass.com system bidname 账号名 竞拍帐号 "2.145 EOS”
 ```
-竞拍taobao帐号名，花费2.145 EOS
+竞拍帐号名，花费2.145 EOS
 
 #### 十、列出拍卖的账号名信息
 
 ```
-cleos -u https://eos.greymass.com system bidnameinfo taobao
+cleos -u https://eos.greymass.com system bidnameinfo 竞拍账号名
 ```
