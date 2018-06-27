@@ -113,10 +113,11 @@ cleos -u https://api.cypherglass.com get currency balance eosio.token Alice的�
 然后，`Alice`用下面命令为`Bob`创建新账号：
 
 ```
-cleos -u https://api.cypherglass.com system newaccount -x 1000 --stake-net "0.1 EOS" --stake-cpu "0.1 EOS" --buy-ram-kbytes 8 Alice账号名 Bob账号名 Bob的owner公钥 [Bob的active公钥] 
+cleos -u https://api.cypherglass.com system newaccount -x 1000 --stake-net "0.1 EOS" --stake-cpu "0.1 EOS" --buy-ram-kbytes 80 Alice账号名 Bob账号名 Bob的owner公钥 [Bob的active公钥] 
 ```
+*注意：当`Alice`为`Bob`创建账户时，最好直接分配少量cpu和net带宽资源，以及ram给新账户，否则即使`Bob`账户被创建了，也无法正常使用*
 
-一会，`Bob`帐号会被建立，通过以下命令查看`Bob`的账户余额：
+`Bob`帐号建立后，通过以下命令查看`Bob`的账户余额以及账户的资源情况：
 
 ```
 cleos -u https://api.cypherglass.com get account Bob账号
@@ -137,3 +138,4 @@ cleos -u https://api.cypherglass.com get currency balance eosio.token Bob账号
 ### Binggo，完成！
 
 可以打开[eospark](https://eospark.com/)，输入`Bob`的账号名，或者公钥，查看该帐号是否已经成功创建，以及钱包内的EOS数量。
+
