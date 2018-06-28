@@ -26,8 +26,8 @@ cleos -u http://nodes.get-scatter.com:80 get table eosio eosio rammarket
 }
 ```
 
-然后使用Bancor算法，计算出RAM价格：
+然后使用Bancor算法，计算出需要`nKB`的RAM的价格：
 
 ```
-RAM价格 = quote.balance / (base.balance × quote.weight)
+RAM价格 = (n + quote.balance) / (base.balance / 1024 + n)
 ```
