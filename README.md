@@ -29,6 +29,7 @@
     * [主网版本1.0.2.2本地安装](docs/mainnet-1.0.2.2_setup.md)
     * [连接EOS主网](docs/eos_mainnet_connect.md)
     * [在主网上创建EOS账户](docs/create_account_on_mainnet.md)
+    * [获取RAM价格](docs/ram_price.md)
 * [测试网络](docs/testnets.md)
 * [EOS辞典](docs/eos_dictionary.md)
 * [快速命令查询](docs/command_list.md)
