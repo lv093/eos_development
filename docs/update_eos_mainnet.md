@@ -25,3 +25,5 @@ ps -ef | grep nodeos
 kill 9 前面命令查询到的进程ID
 nodeos
 ```
+
+如果网络一切正常的话，以上升级时间大概在20分钟。
