@@ -13,7 +13,7 @@ cd ~\eos
 git pull orgin mainnet-1.0.7
 ```
 
-第三步：安装
+第三步：编译安装
 ```
 cd build
 make install
