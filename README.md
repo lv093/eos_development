@@ -27,6 +27,7 @@
     * eosjs开发实例
 * EOS主网
     * [主网版本1.0.2.2本地安装](docs/mainnet-1.0.2.2_setup.md)
+    * [主网版本升级](docs/update_eos_mainnet.md)
     * [连接EOS主网](docs/eos_mainnet_connect.md)
     * [在主网上创建EOS账户](docs/create_account_on_mainnet.md)
     * [获取RAM价格](docs/ram_price.md)
