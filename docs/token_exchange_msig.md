@@ -7,9 +7,14 @@
 
 在发行一个代币前，我们需要建立一个账户用来部署代币合约。
 ```
-cleos create account eosio eosio.token 公钥1 公钥2
+cleos create account eosio eosio.token Owner公钥 Active公钥
 ```
 以上命令创建了一个名为`eosio.token`的账户。
+
+将以上两个公钥对应的私钥都导入到钱包中
+```
+cleos wallet import 私钥 -n 钱包名
+```
 
 然后，将位于`${EOS根目录}/build/contracts/eosio.token`的文件部署到eosio.token账户。
 ```
