@@ -48,40 +48,40 @@ cleos wallet import 私钥 -n 钱包名
 
 下面用`cleos`命令来创建一个名为BOS的代币，发行量为10亿，精度为小数点后4位：
 ```
-$ cleos push action eosio.token create '[ "eosio", "1000000000.0000 EOS", 0, 0, 0]' -p eosio.token
+$ cleos push action eosio.token create '[ "eosio", "1000000000.0000 BOS", 0, 0, 0]' -p eosio.token
 执行结果:
 executed transaction: 0e49a421f6e75f4c5e09dd738a02d3f51bd18a0cf31894f68d335cd70d9c0e12  260 bytes  1000 cycles
-#   eosio.token <= eosio.token::create          {"issuer":"eosio","maximum_supply":"1000000000.0000 EOS","can_freeze":0,"can_recall":0,"can_whitelis...
+#   eosio.token <= eosio.token::create          {"issuer":"eosio","maximum_supply":"1000000000.0000 BOS","can_freeze":0,"can_recall":0,"can_whitelis...
 ```
 
 另外，还有一种较为复杂的方式，使用JSON格式的参数：
 ```
-$ cleos push action eosio.token create '{"issuer":"eosio", "maximum_supply":"1000000000.0000 EOS", "can_freeze":0, "can_recall":0, "can_whitelist":0}' -p eosio.token
+$ cleos push action eosio.token create '{"issuer":"eosio", "maximum_supply":"1000000000.0000 BOS", "can_freeze":0, "can_recall":0, "can_whitelist":0}' -p eosio.token
 执行结果
 executed transaction: 0e49a421f6e75f4c5e09dd738a02d3f51bd18a0cf31894f68d335cd70d9c0e12  260 bytes  1000 cycles
-#   eosio.token <= eosio.token::create          {"issuer":"eosio","maximum_supply":"1000000000.0000 EOS","can_freeze":0,"can_recall":0,"can_whitelis...
+#   eosio.token <= eosio.token::create          {"issuer":"eosio","maximum_supply":"1000000000.0000 BOS","can_freeze":0,"can_recall":0,"can_whitelis...
 ```
-由于创建的代币需要“拥有”这个代币的命名空间（如EOS），因而获得`eosio.token`智能合约的权限，所以在以上命令中，有一个参数 `-p eosio.token`。
+由于创建的代币需要“拥有”这个代币的命名空间（如BOS），因而获得`eosio.token`智能合约的权限，所以在以上命令中，有一个参数 `-p eosio.token`。
 
 #### 让账户`user`发行代币
 现在，我们来发行一个代币，代币的发行方为账户`user`。
 可以使用如下命令：
 ```
-$ cleos push action eosio.token issue '[ "user", "100.0000 EOS", "memo" ]' -p eosio
+$ cleos push action eosio.token issue '[ "user", "100.0000 BOS", "memo" ]' -p eosio
 执行结果：
 executed transaction: 822a607a9196112831ecc2dc14ffb1722634f1749f3ac18b73ffacd41160b019  268 bytes  1000 cycles
-#   eosio.token <= eosio.token::issue           {"to":"user","quantity":"100.0000 EOS","memo":"memo"}
+#   eosio.token <= eosio.token::issue           {"to":"user","quantity":"100.0000 BOS","memo":"memo"}
 >> issue
-#   eosio.token <= eosio.token::transfer        {"from":"eosio","to":"user","quantity":"100.0000 EOS","memo":"memo"}
+#   eosio.token <= eosio.token::transfer        {"from":"eosio","to":"user","quantity":"100.0000 BOS","memo":"memo"}
 >> transfer
-#         eosio <= eosio.token::transfer        {"from":"eosio","to":"user","quantity":"100.0000 EOS","memo":"memo"}
-#          user <= eosio.token::transfer        {"from":"eosio","to":"user","quantity":"100.0000 EOS","memo":"memo"}
+#         eosio <= eosio.token::transfer        {"from":"eosio","to":"user","quantity":"100.0000 BOS","memo":"memo"}
+#          user <= eosio.token::transfer        {"from":"eosio","to":"user","quantity":"100.0000 BOS","memo":"memo"}
 ```
 这次操作，输出的信息中出现了一个`issue`和三个`transfer`。但是，我们只签名了一个操作`issue`，怎么会出现三个`transfer`呢？这是因为这个`issue`操作带动了`inline transfer`（内联交易操作），并且这个内联交易操作通知了发送方和接收方的帐号。以上三个`transfer`显示了所有的操作细节，包括操作命令、顺序等等。
 
 如果需要查看被广播的实际交易，可以使用`-d -j`选项来指示：不要广播，以JSON形式返回交易内容，如下：
 ```
-$ cleos push action eosio.token issue '["user", "100.0000 EOS", "memo"]' -p eosio -d -j
+$ cleos push action eosio.token issue '["user", "100.0000 BOS", "memo"]' -p eosio -d -j
 结果如下：
 {
   "expiration": "2018-04-01T15:20:44",
@@ -111,15 +111,15 @@ $ cleos push action eosio.token issue '["user", "100.0000 EOS", "memo"]' -p eosi
 ```
 
 #### 将代币转到账户`tester`
-经过上一步操作，账户`user`已经拥有了代币，现在我们将25个EOS转给账户`tester`。我们使用选项 `-p user`来授权这个操作。
+经过上一步操作，账户`user`已经拥有了代币，现在我们将25个BOS转给账户`tester`。我们使用选项 `-p user`来授权这个操作。
 ```
-$ cleos push action eosio.token transfer '[ "user", "tester", "25.0000 EOS", "m" ]' -p user
+$ cleos push action eosio.token transfer '[ "user", "tester", "25.0000 BOS", "m" ]' -p user
 执行结果：
 executed transaction: 06d0a99652c11637230d08a207520bf38066b8817ef7cafaab2f0344aafd7018  268 bytes  1000 cycles
-#   eosio.token <= eosio.token::transfer        {"from":"user","to":"tester","quantity":"25.0000 EOS","memo":"m"}
+#   eosio.token <= eosio.token::transfer        {"from":"user","to":"tester","quantity":"25.0000 BOS","memo":"m"}
 >> transfer
-#          user <= eosio.token::transfer        {"from":"user","to":"tester","quantity":"25.0000 EOS","memo":"m"}
-#        tester <= eosio.token::transfer        {"from":"user","to":"tester","quantity":"25.0000 EOS","memo":"m"}
+#          user <= eosio.token::transfer        {"from":"user","to":"tester","quantity":"25.0000 BOS","memo":"m"}
+#        tester <= eosio.token::transfer        {"from":"user","to":"tester","quantity":"25.0000 BOS","memo":"m"}
 ```
 
 #### 查询余额
@@ -130,8 +130,8 @@ cleos get currency balance eosio.token tester
 ```
 查询指定代币余额
 ```
-cleos get currency balance eosio.token user EOS
-cleos get currency balance eosio.token tester EOS
+cleos get currency balance eosio.token user BOS
+cleos get currency balance eosio.token tester BOS
 ```
 
 ### 部署交易所合约
