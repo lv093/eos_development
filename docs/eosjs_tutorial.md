@@ -16,6 +16,11 @@
 node v8+
 npm 6.1.11
 
+* 当前最新版本的eosjs为tag:15.0.2，支持eosio 1.0.5-1.0.7
+* Converted some types in format module from unsigned to signed: UDecimalPad -> DecimalPad for example (15.0.1)
+* All asset and extended_asset amounts require exact decimal places (Change 1 SYS to 1.0000 SYS) (15.0.0)
+* Use config.verbose instead of config.debug (14.1.0)
+
 ### EOSJS
 用法：
 ```
