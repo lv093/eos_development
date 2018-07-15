@@ -24,7 +24,7 @@
     * EOS数据库基础
 * eosjs使用
     * [eosjs使用说明](docs/eosjs_tutorial.md)
-    * eosjs开发实例
+    * [eosjs简明使用手册（最新版）](docs/eosjs_manual.md)
 * EOS主网
     * [主网版本1.0.2.2本地安装](docs/mainnet-1.0.2.2_setup.md)
     * [主网版本升级](docs/update_eos_mainnet.md)
