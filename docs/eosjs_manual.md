@@ -403,7 +403,7 @@ eos.transaction(tr => {
 })
 ```
 
-### 24- 智能合约部署与执行
+### 24- 智能合约部署
 如果是加载`wasm`合约，不用使用`binaryen`，如果加载`wast`合约，需要安装并使用`binaryen`，如下：
 
 ```
@@ -469,7 +469,7 @@ eos.transaction(
 
 1- 需要将`eosio.token`的私钥导入到`keyProvider`数组中
 
-2- 
+2- 如果出于安全原因，不允许将`eosio.token`加到程序中，则可以由发币的用户部署`eosio.token`合约，然后再做接下去的操作。
 
 #### 第一步：创建代币
 ```
