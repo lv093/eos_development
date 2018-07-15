@@ -1,15 +1,15 @@
 ## eosjs简明使用手册（最新版）
 ##### 作者：古千峰 2018-7-15
 
-以下教程用于EOS正式版，已在DEV开发链和EOS主链上测试通过。
+以下教程用于EOS正式版，已在DEV开发链和EOS1.0.5-1.0.7版本的主链上测试通过。
 
-[官方文档](https://github.com/EOSIO/eosjs/blob/master/README.md)
+[官方文档](https://github.com/EOSIO/eosjs/blob/master/README.md)因为版本的原因，内容多有错误，仅供参考。
 
 *eosjs的API与http-RPC调用一致，如rpc使用get-block，则在js中使用getBlock()方法。即去横岗，首字符大写*
 
-### 几个容易出错的地方
+### eosjs几个容易出错的地方
 * asset类型，表达方式为字符串，如：`100.0000 EOS`，千万注意小数点后四位，少一位都不行
-
+(不断添加中)
 
 ### 1- 安装eosjs
 `eosjs`用于对交易签名、交易等操作
