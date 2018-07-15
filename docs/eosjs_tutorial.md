@@ -5,6 +5,9 @@
 
 |Version|[EOSIO/eosjs][1]|[Npm][2]|[EOSIO/eos][3]|[Docker][4]|Node
 |-------|-------|--------|-------|-------|-------|
+| dawn4.2 | tag: 13.x.x | `npm install eosjs` (version 13) | tag: dawn-v4.2.0 | eosio/eos:20180526 | [local docker](https://github.com/EOSIO/eosjs/tree/master/docker) |
+| dawn4.1 | tag: 12.x.x | `npm install eosjs` (version 12) | tag: dawn-v4.1.0 | eosio/eos:20180519 | [local docker](https://github.com/EOSIO/eosjs/tree/master/docker) |
+| dawn4 | tag: 11.x.x | `npm install eosjs@dawn4` (version 11) | tag: dawn-v4.0.0 | eosio/eos:dawn-v4.0.0 | [local docker](https://github.com/EOSIO/eosjs/tree/master/docker) |
 |DAWN-2018-04-23-ALPHA|tag:9.x.x|npm install eosjs@dawn3|tag:DAWN-2018-04-23-ALPHA|eosio/eos:DAWN-2018-04-23-ALPHA|[Docker配置][5]|
 |dawn3|tag:8.x.x|npm install eosjs@8|tag:dawn-v3.0.0|eosio/eos:dawn3x|[Docker配置][6]|
 |dawn2|branch:dawn2|npm install eosjs|branch:dawn-2.x|eosio/eos:dawn2x|[Docker配置][7]|
