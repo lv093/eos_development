@@ -31,7 +31,7 @@
     * [连接EOS主网](docs/eos_mainnet_connect.md)
     * [在主网上创建EOS账户](docs/create_account_on_mainnet.md)
     * [获取RAM价格](docs/ram_price.md)
-* [DEV开发者网络节点接入手册](docs/dev.md)
+* [DEV开发链节点接入手册](docs/dev.md)
 * [EOS辞典](docs/eos_dictionary.md)
 * [快速命令查询](docs/command_list.md)
 * [开发与调试工具](docs/tools.md)
