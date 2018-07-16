@@ -1,6 +1,8 @@
 ## eosjs使用说明文档
 ##### 翻译：古千峰@BTCMedia
 
+**本使用说明基于EOSIO 1.0.22版本，最新版的教程请[参考这里](https://github.com/eoshackathon/eos_dapp_development_cn/blob/master/docs/eosjs_manual.md)**
+
 ### 版本说明：
 
 |Version|[EOSIO/eosjs][1]|[Npm][2]|[EOSIO/eos][3]|[Docker][4]|Node
