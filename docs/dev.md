@@ -1,7 +1,7 @@
 ## 加入EOS开发者专用区块链：DEV开发链
 #### 作者：古千峰
 
-DEV（Developer）开发链是由【柚子杯】黑客马拉松官方基于[EOS 1.0.7](https://github.com/EOS-Mainnet/eos)创建的开发者专用区块链，该开发链旨在为开发者提供更好的线上开发和调试环境。
+DEV（Developer）开发链是由【柚子杯】黑客马拉松官方基于[EOS 1.0.7](https://github.com/EOS-Mainnet/eos/tree/mainnet-1.0.7)创建的开发者专用区块链，该开发链旨在为开发者提供更好的线上开发和调试环境。
 
 ### 一、加入 DEV 开发链的条件
 
