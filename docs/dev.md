@@ -69,7 +69,7 @@ cleos get info
 帐号创建后后，申请人可以通过以下命令，获取该bp账户信息：
 
 ```
-cleos get account 新账号名
+cleos -u http://178.62.196.196:8888 get account 新账号名
 ```
 
 #### 2- 自助申请成为BP
@@ -88,13 +88,13 @@ cleos wallet import 私钥
 然后，注册申请成为BP
 
 ```
-cleos system regproducer {BP用户名producer-name} {公钥} http://{服务器IP}:8888
+cleos -u http://178.62.196.196:8888 system regproducer {BP用户名producer-name} {公钥} http://{服务器IP}:8888
 ```
 
 执行完后以上命令，再运行
 
 ```
-cleos system listproducers
+cleos -u http://178.62.196.196:8888 system listproducers
 ```
 在produducers列表中应该有你的`producer-name`。
 
