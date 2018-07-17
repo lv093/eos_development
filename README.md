@@ -13,12 +13,11 @@
     * [关于智能合约](docs/about_smart_contract.md)
     * [在eosio上发行代币](docs/token_exchange_msig.md)
     * [Helloworld合约](docs/Helloworld_contract.md)
+    * [multi-index数据库操作代码模板](docs/db_module.md)
     * [井字游戏Tic-tac-toe智能合约](docs/tic-tac-toe_game.md)
     * [随机数发生器](docs/randomization.md)
     * [Dice猜数字游戏](docs/dice_contract.md)
     * [自动充值与提现](docs/exchange_deposit_withdrawal.md)
-* EOS数据库操作
-    * [multi-index数据库操作代码模板](docs/db_module.md)
 * eosjs使用
     * [eosjs使用说明](docs/eosjs_tutorial.md)
     * [eosjs简明使用手册（最新版）](docs/eosjs_manual.md)
