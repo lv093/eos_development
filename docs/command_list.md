@@ -1,6 +1,7 @@
 ## cleos快速命令查询
 
 本手册中的命令，基于主网操作，如需在DEV开发链上操作，请将命令中的`https://eos.greymass.com`改为`http://178.62.196.196:8888`
+如果`https://eos.greymass.com`无法访问，则请查阅[BP节点链接](bp_urls.md)选择任意一个链接取代即可。
 
 #### 一、查看资源
 
@@ -57,10 +58,4 @@ cleos -u https://eos.greymass.com system listbw 账号名
 ```
 cleos -u https://eos.greymass.com system bidname 账号名 竞拍帐号 "2.145 EOS"
 ```
-竞拍帐号名，花费2.145 EOS
-
-#### 十、列出拍卖的账号名信息
-
-```
-cleos -u https://eos.greymass.com system bidnameinfo 竞拍账号名
-```
+竞拍帐号
