@@ -19,8 +19,8 @@
     * [Dice猜数字游戏](docs/dice_contract.md)
     * [自动充值与提现](docs/exchange_deposit_withdrawal.md)
 * EOS数据库操作
-    * [增删改查](docs/eos_db_demo.md)
-    * EOS数据库基础
+    * [EOS数据库基础](docs/eos_db_demo.md)
+    * [增删改查代码模板](docs/db_module.md)
 * eosjs使用
     * [eosjs使用说明](docs/eosjs_tutorial.md)
     * [eosjs简明使用手册（最新版）](docs/eosjs_manual.md)
