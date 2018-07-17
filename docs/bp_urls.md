@@ -33,3 +33,7 @@
 ```
 cleos -u 以上任意链接 get info
 ```
+如：
+```
+cleos -u https://api.eosnewyork.io:443 get info
+```
