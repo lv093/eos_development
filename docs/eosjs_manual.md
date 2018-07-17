@@ -469,7 +469,7 @@ eos.transaction(
 ).then(result => console.log(result))
 ```
 
-### 24- 通过eosjs发行一个代币
+### 26- 通过eosjs发行一个代币
 发行代币有两种方式，一种是通过`cleos`，[参考这里](https://github.com/eoshackathon/eos_dapp_development_cn/blob/master/docs/token_exchange_msig.md)，但前提是必须要安装好EOS系统。
 另一种方式是通过`eosjs`，无需在本机安装EOS系统。
 
