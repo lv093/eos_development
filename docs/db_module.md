@@ -21,10 +21,12 @@ class addressbook : public eosio::contract
   public:
     addressbook(account_name self):contract(self) {}  //注意：这里要与类名相同addressbook
     typedef eosio::multi_index< N(address), address > address_index;
-    ...
-    ...
+    //...
+    //接下面的增删改查方法
+    //...
 }
 ```
+以上代码定义了一个数据表，包括：`account_name`, `first_name`, `last_name`, `street`, `city`, `state` 六个字段，并且将`account_name`设为了主键。
 
 ### 二、查询表数据 find
 ```
