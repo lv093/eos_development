@@ -8,7 +8,6 @@
     * [nodeos配置说明](docs/nodeos_config.md)
     * [记账节点与普通节点](docs/block_producer_non_producer.md)
     * [本地多节点配置](docs/eos_multi_node.md)
-    * 节点启动流程
 * 智能合约
     * [智能合约入门](docs/smart_contract_start.md)
     * [关于智能合约](docs/about_smart_contract.md)
