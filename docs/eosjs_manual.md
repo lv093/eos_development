@@ -5,20 +5,22 @@
 
 [官方文档](https://github.com/EOSIO/eosjs/blob/master/README.md)因为版本的原因，内容多有错误，仅供参考。
 
-*eosjs的API与http-RPC调用一致，如rpc使用get-block，则在js中使用getBlock()方法。即去横岗，首字符大写*
+*eosjs的API与http-RPC调用一致，如rpc使用`get-block`，则在eosjs中使用`getBlock()`方法。即去横岗，首字符大写*
 
 ### eosjs几个容易出错的地方
 * asset类型，表达方式为字符串，如：`100.0000 EOS`，千万注意小数点后四位，少一位都不行
-(不断添加中)
+* 与链连接时需要指定chainId，可以通过`cleos get info`获得
 
 ### 1- 安装eosjs
-`eosjs`用于对交易签名、交易等操作
-`eosjs-api`用于读取链上数据，只读，如果只需要读取链上数据的话，只需要使用`eosjs-api`
+`eosjs`用于对交易签名、交易等操作。
+`eosjs-api`用于读取链上数据，只读，如果只需要读取链上数据的话，只需要使用`eosjs-api`。
 
+在nodejs中安装：
 ```
 npm install eosjs
 npm install eosjs-api
 ```
+注意`nodejs`需要最新版，如安装过程发生错误，请用`node -v`和`npm -v`查看版本。
 
 ### 2- 建立eosjs与链的连接
 ```
@@ -71,7 +73,7 @@ eos = EosApi(options)
 eos.getBlock()
 ```
 
-### 5- 获取链上最新块信息
+### 5- 获取链上最新出块信息
 ```
 eos.getInfo({}).then(result => { 
 	console.log(result) 
@@ -99,7 +101,7 @@ eos.getInfo({}).then(result => {
 
 ```
 eos.getInfo({}).then(result => { 
-	console.log(result.head_block_producer) 
+	console.log(result.head_block_producer) //以对象属性方式获取head_block_producer
 })
 ```
 
@@ -198,19 +200,19 @@ eos.getAbi({ account_name: "eosio"}, callback)
 
 ### 12- 获取Table行数据
 ```
-
+不成熟
 ```
 
 ### 13- 获取账户的Actions列表
 ```
-eos.getActions({account_name: "eoshackathon", pos: 0, offset: 15}, callback)
+eos.getActions({account_name: "eoshackathon", pos: 0, offset: 15}, callback) //pos和offset是指：从第pos条记录开始获取offset条Actions
 ```
 
 ### 14- 获取公钥对应的账户
 ```
 eos.getKeyAccounts({ public_key: 公钥字符串}, callback)
 ```
-如果查找到帐号，则返回`[]`（为什么会这样？），如果该公钥没有对应帐号，则报错。
+如果查找到帐号，则返回`[]`，如果该公钥没有对应帐号，则报错。
 相当于：
 
 ```
@@ -235,7 +237,7 @@ eos.getTransaction({id: "xxxx"}, callback)
 
 ```
 options = {
-    authorization: 'testtesttest@active',
+    authorization: '发送方帐号@active',
     broadcast: true,
     sign: true
 }
@@ -306,20 +308,24 @@ creatoraccount = "testtesttest" //主账号
 newaccount = "testtest1113" //新账号
 newaccount_pubkey = "EOS5LUYdLZAd3uHF5XGAeE61aTeSXWqvqxBSUq3uhqYH7kY15Drjf" //新账号的公钥
 
+//构建transaction对象
 eos.transaction(tr => {
+    //新建账号
     tr.newaccount({
         creator: creatoraccount,
         name: newaccount,
         owner: newaccount_pubkey,
         active: newaccount_pubkey
     })
-
+    
+    //为新账号充值RAM
     tr.buyrambytes({
         payer: creatoraccount,
         receiver: newaccount,
         bytes: 8192
     })
 
+    //为新账号抵押CPU和NET资源
     tr.delegatebw({
         from: creatoraccount,
         receiver: newaccount,
@@ -382,10 +388,10 @@ eos.transaction(tr => {
 eos.transaction(tr => {
     tr.delegatebw({
         from: "testtesttest",
-        receiver: "testtesttest",
+        receiver: "testtesttest", //testtesttest账户为自己抵押
         stake_net_quantity: "1.0000 DEV",
         stake_cpu_quantity: "1.0000 DEV",
-        transfer: 0 //必须是0
+        transfer: 0
     })
 })
 
@@ -397,7 +403,7 @@ eos.transaction(tr => {
     tr.undelegatebw({
         from: "testtesttest",
         receiver: "testtesttest",
-        unstake_net_quantity: "0.1000 DEV", //速回0.1个DEV
+        unstake_net_quantity: "0.1000 DEV", //赎回0.1个DEV
         unstake_cpu_quantity: "0.1000 DEV"
     })
 })
@@ -417,18 +423,20 @@ eos = Eos({keyProvider, binaryen})
 ```
 
 ##### 部署合约
+以官方自带的hello合约为例
 
 ```
+fs = require('fs')
 wasm = fs.readFileSync(`contracts/hello/hello.wasm`) //这个文件在客户端上，而不是在服务器上
 abi = fs.readFileSync(`contracts/hello/hello.abi`)
 
-// Publish contract to the blockchain
 eos.setcode('contract_name', 0, 0, wasm) // contract_name 为合约名
 eos.setabi('contract_name', JSON.parse(abi)) // @returns {Promise}
 ```
 
 ### 25- 智能合约的执行
 ##### 方法一：
+
 ```
 eos.contract("contract_name").then(hello => {  //hello随便起的变量名
     hello.hi('axay', {                         //hi是方法名, 'axay'是该hello合约hi方法的参数
@@ -445,8 +453,8 @@ eos.transaction(
     {
         actions: [
             {
-                account: 'testtesttest',  //合约名
-                name: 'hi',               //方法名
+                account: 'contract_name',  //合约名
+                name: 'hi',               //方法名，该方法在官方的hello合约中有
                 authorization: [{
                     actor: 'testtesttest',
                     permission: 'active'
@@ -467,9 +475,7 @@ eos.transaction(
 
 注意：
 
-1- 需要将`eosio.token`的私钥导入到`keyProvider`数组中
-
-2- 如果出于安全原因，不允许将`eosio.token`加到程序中，则可以由发币的用户部署`eosio.token`合约，然后再做接下去的操作。
+此操作需要以`eosio.token`账户进行操作，因此需将`eosio.token`帐号的私钥导入到`keyProvider`数组中。但如果出于安全原因，不允许将`eosio.token`账户私钥加到程序中的话，则可以由发币的用户先部署`eosio.token`合约，然后再做接下去的操作。
 
 #### 第一步：创建代币
 ```
@@ -478,7 +484,7 @@ eos.transaction(
         // ...headers,
         actions: [
             {
-                account: 'eosio.token',       //合约
+                account: 'eosio.token',       //合约名
                 name: 'create',               //调用创建代币的方法
                 authorization: [{
                     actor: 'eosio.token',     //必须是eosio.token
@@ -504,7 +510,7 @@ eos.transaction(
         // ...headers,
         actions: [
             {
-                account: 'eosio.token',      //合约
+                account: 'eosio.token',      //合约名
                 name: 'issue',               //调用发行代币的方法
                 authorization: [{
                     actor: 'testtesttest',   //必须是代币的发行方
@@ -522,7 +528,7 @@ eos.transaction(
 ).then(result => console.log(result))
 ```
 
-可以将以上两步合在一起操作，如：
+也可以将以上两步合在一起操作，如：
 
 ```
 eos.transaction(
