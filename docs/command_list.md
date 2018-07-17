@@ -1,24 +1,6 @@
 ## cleos快速命令查询
 
-#### 启动节点
-```
-nodeos -e -p --plugin eosio::wallet_api_plugin --plugin eosio::chain_api_plugin --plugin eosio::account_history_api_plugin --plugin eosio::prod
-ucer_plugin
-```
-如果在config.ini配置中已经将plugin都配置好，则只需要
-```
-nodeos
-```
-在linux中，nodeos作为一个可执行文件，会复制到`/usr/local/bin`目录中，从而在任何目录下都可以执行该命令。
-
-#### 创建默认钱包
-```
-./cleos wallet create
-```
-
-## 主网操作命令速查
-
-*主账号与子帐号：EOS采取主账号为子帐号开户，并且分配资源的方式。如果主账号为子帐号分配了资源，则主账号的减少=子帐号的增加*
+本手册中的命令，基于主网操作，如需在DEV开发链上操作，请将命令中的`https://eos.greymass.com`改为`http://178.62.196.196:8888`
 
 #### 一、查看资源
 
