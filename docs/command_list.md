@@ -1,5 +1,7 @@
 ## cleos快速命令查询
 
+#### 作者：古千峰
+
 本手册中的命令，基于主网操作，如需在DEV开发链上操作，请将命令中的`https://eos.greymass.com`改为`http://178.62.196.196:8888`。
 
 如果`https://eos.greymass.com`无法访问，则请查阅[BP节点链接](bp_urls.md)选择任意一个链接取代即可。
@@ -60,3 +62,19 @@ cleos -u https://eos.greymass.com system listbw 账号名
 cleos -u https://eos.greymass.com system bidname 账号名 竞拍帐号 "2.1450 EOS"
 ```
 竞拍帐号
+
+#### 十、修改active密钥对
+首先，[点击这里](http://178.62.196.196/eosjs-ecc/)生成一对新的密钥对。
+
+```
+cleos -u https://eos.greymass.com set account permission 帐号 active 新的公钥 owner -p 帐号@owner
+```
+注意：`-p`前的`owner`不能少
+
+#### 十一、修改owner密钥对
+同上，先生成新的密钥对。
+
+```
+cleos -u https://eos.greymass.com set account permission 帐号 owner 新的公钥 -p 帐号@owner
+```
+注意：`-p`前不需要`owner`
