@@ -69,8 +69,9 @@ cleos -u https://eos.greymass.com system bidname 账号名 竞拍帐号 "2.1450 
 ```
 cleos -u https://eos.greymass.com set account permission 帐号 active 新的公钥 owner -p 帐号@owner
 ```
-注意：`-p`前的`owner`不能少
-使用新的密钥钥，需要将新的私钥用`cleos wallet import `导入到钱包
+注意：`-p`前的`owner`不能少。
+
+使用新的密钥对，需要将新的私钥用`cleos wallet import `导入到钱包
 
 #### 十一、修改owner密钥对
 同上，先生成新的密钥对。
