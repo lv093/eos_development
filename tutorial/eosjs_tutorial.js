@@ -2,6 +2,8 @@
  * eosjs 培训课程用js
  * By 古千峰@BTCMedia
  * July.14, 2018
+ *
+ * 请先安装 eosjs 库，安装命令：npm install eosjs
  */
 
 Eos = require('eosjs')         // 实例化 eosjs
