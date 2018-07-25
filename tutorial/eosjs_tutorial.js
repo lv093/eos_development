@@ -224,7 +224,7 @@ eos.transaction(tr => {
  * 第八部分：智能合约部署
  * =============================
  * 每个账户只能部署一个合约，账户名即合约名，如以下命令在 testtest1114 账户建立一个 testtest1114 的合约
- * hello 合约可以到以下地址下载：
+ * hello 合约可以[点击这里下载](https://github.com/eoshackathon/eos_dapp_development_cn/tree/master/contract)，将wasm和abi文件直接下载到本机目录下。
  *
  * 注意:
  * 1- 需要将 testtest1114 账户的私钥导入
@@ -385,7 +385,7 @@ eos.transaction(
  */
 
 // 第一步：部署 eosio.token 合约
-// eosio.token 合约可以到以下地址下载到本地
+// eosio.token 合约可以[点击这里下载](https://github.com/eoshackathon/eos_dapp_development_cn/tree/master/contract)，将wasm和abi文件直接下载到本机目录下。
 // 注意：如果部署合约失败，请先部署一个hello合约，然后将其覆盖，原因不知。
 
 /*
