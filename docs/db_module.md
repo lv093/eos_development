@@ -8,6 +8,8 @@
 ```
 class addressbook : public eosio::contract
 {
+  // @abi table data i64
+  //上面一行不能少，用来编译abi文件需要
   struct address {
      uint64_t account_name; //注意account_name必须是uint64_t类型，并且12个字符，a-z1-5
      string first_name;
@@ -30,6 +32,7 @@ class addressbook : public eosio::contract
 
 ### 二、查询表数据 find
 ```
+    // @abi action
     void myaction() { //方法名，通过cleos push action myaction 调用
       address_index addresses(_self, _self); // code是合约名, scope是签名方
       // 先添加一个记录，然后再查询表
@@ -50,6 +53,7 @@ class addressbook : public eosio::contract
 
 ### 三、修改数据 modify
 ```
+    // @abi action
     void myaction() {
       address_index addresses(_self, _self); // code, scope
       // 先添加一个记录，然后再修改数据
@@ -73,6 +77,7 @@ class addressbook : public eosio::contract
 
 ### 四、添加数据 emplace
 ```
+    // @abi action
     void myaction() {
       address_index addresses(_self, _self); // code, scope
       // 添加一个记录
@@ -90,6 +95,7 @@ class addressbook : public eosio::contract
 
 ### 五、删除数据
 ```
+    // @abi action
     void myaction() {
       address_index addresses(_self, _self); // code, scope
       // 先添加一个记录，然后再删除数据
