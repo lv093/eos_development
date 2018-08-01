@@ -9,7 +9,7 @@
 class addressbook : public eosio::contract
 {
   // @abi table data i64
-  //上面一行不能少，用来编译abi文件需要
+  //上面一行不能少，用来编译abi文件需要。上面的 data 就是这个表的名字
   struct address {
      uint64_t account_name; //注意account_name必须是uint64_t类型，并且12个字符，a-z1-5
      string first_name;
@@ -125,3 +125,16 @@ class addressbook : public eosio::contract
 # cleos set contract 合约账户吗 合约所在目录 -p 合约账户名                   //部署正式合约
 ```
 注意：因为EOSIO的bug，有时候更新合约会失败，需要重新部署其他合约后，才能更新合约，因此有了上面第三步：部署`hello`这个官方给的最简单的合约。
+
+### 七、使用`cleos`查看数据表
+
+```
+cleos get table contract_name scope table_name
+```
+其中：
+
+`contract_name` 是合约账户名
+
+`scope` 是数据库中数据所有人的账户名
+
+`table_name` 是表名，本教程中即数据结构声明中 `@abi table data i64`中的 `data`
