@@ -1,11 +1,16 @@
 ## EOS数据库操作
 
-#### 作者：古千峰
+#### 作者：古千峰@BTCMedia
 
 数据库类为`eosio::multi-index`，[官方帮助文档](https://developers.eos.io/eosio-cpp/reference#multi-index)
 
 ### 一、定义数据表与程序框架
 ```
+#include <eosiolib/eosio.hpp>
+
+using namespace eosio;
+using namespace std;
+
 class addressbook : public eosio::contract
 {
   // @abi table data i64
@@ -33,7 +38,7 @@ class addressbook : public eosio::contract
 ### 二、查询表数据 find
 ```
     // @abi action
-    void myaction() { //方法名，通过cleos push action myaction 调用
+    void get() { //方法名，通过cleos push action myaction 调用
       address_index addresses(_self, _self); // code是合约名, scope是签名方
       // 先添加一个记录，然后再查询表
       addresses.emplace(_self, [&](auto& address) {
@@ -54,7 +59,7 @@ class addressbook : public eosio::contract
 ### 三、修改数据 modify
 ```
     // @abi action
-    void myaction() {
+    void update() {
       address_index addresses(_self, _self); // code, scope
       // 先添加一个记录，然后再修改数据
       addresses.emplace(_self, [&](auto& address) {
@@ -78,7 +83,7 @@ class addressbook : public eosio::contract
 ### 四、添加数据 emplace
 ```
     // @abi action
-    void myaction() {
+    void add() {
       address_index addresses(_self, _self); // code, scope
       // 添加一个记录
       addresses.emplace(_self, [&](auto& address) { //_self是支付这笔修改费用的帐号，即自己
@@ -96,7 +101,7 @@ class addressbook : public eosio::contract
 ### 五、删除数据
 ```
     // @abi action
-    void myaction() {
+    void erase() {
       address_index addresses(_self, _self); // code, scope
       // 先添加一个记录，然后再删除数据
       addresses.emplace(_self, [&](auto& address) {
@@ -138,3 +143,134 @@ cleos get table contract_name scope table_name
 `scope` 是数据库中数据所有人的账户名
 
 `table_name` 是表名，本教程中即数据结构声明中 `@abi table data i64`中的 `data`
+
+### 八、实战一个完成的增删改查合约
+以下智能合约完整的实现了数据库的增删改查操作。
+
+#### 第一步：下载智能合约[database.cpp](https://github.com/eoshackathon/eos_dapp_development_cn/blob/master/contract/database.cpp)，到目录 `~/eos/contracts/db/`下
+
+#### 第二步：编译该合约
+
+```
+eosiocpp -g database.abi database.cpp
+eosiocpp -o database.wast database.cpp
+```
+
+#### 第三步：部署合约
+
+```
+cleos set contract 部署的合约帐号名 ~/eos/contracts/db -p 帐号名@active
+```
+
+#### 第四步：使用`cleos`运行合约
+##### 1- 添加数据，如：
+
+```
+cleos push action 合约账号名 create '[3, "Eva Gu", "China"]' -p 使用者账号名 //添加id为3的数据
+```
+
+##### 2- 更新数据，如：
+
+```
+cleos push action 合约账号名 update '[2, "Jacky Gu", "China"]' -p 使用者账号名 //更新id为2的数据
+```
+
+##### 3- 查询数据，如：
+
+```
+cleos push action 合约账号名 get '[2]' -p 使用者账号名 //获取id为2的数据
+```
+
+##### 4- 删除数据，如：
+
+```
+cleos push action 合约账号名 erase '[2]' -p 使用者账号名 //获取id为2的数据
+```
+
+#### 第五步：查询合约数据
+
+```
+cleos get table  合约账号名 使用者账号名 mltidxdb //查询名为mltidxdb的表数据，该表名在合约中用 @abi table标明
+```
+
+### 九、在前端使用`eosjs`调用增删改查合约
+#### 1- 添加数据
+
+```
+eos.transaction({
+    actions: [{
+        account: 'testtesttest',      //合约名，即发行帐号
+        name: 'create',               //新建一条数据方法
+        authorization: [{
+            actor: 'testtesttest',    //使用者帐号
+            permission: 'active'
+        }],
+        data: {
+            id: new Int64(0x00000004),
+            name: "Satoshi",
+            address: "101 Moon"
+        }
+    }]
+}).then(result => console.log(result))
+```
+
+#### 2- 更新数据
+
+```
+eos.transaction({
+    actions: [{
+        account: 'testtesttest',      //合约名，即发行帐号
+        name: 'update',               //新建一条数据方法
+        authorization: [{
+            actor: 'testtesttest',    //使用者帐号
+            permission: 'active'
+        }],
+        data: {
+            id: new Int64(0x00000004),
+            name: "Vitalik",
+            address: "102 Moon"
+        }
+    }]
+}).then(result => console.log(result))
+```
+
+#### 3- 查询数据
+
+```
+eos.transaction({
+    actions: [{
+        account: 'testtesttest',      //合约名，即发行帐号
+        name: 'get',               //新建一条数据方法
+        authorization: [{
+            actor: 'testtesttest',    //使用者帐号
+            permission: 'active'
+        }],
+        data: {
+            id: new Int64(0x00000004)
+        }
+    }]
+}).then(result => console.log(result))
+```
+
+#### 4- 删除数据
+```
+eos.transaction({
+    actions: [{
+        account: 'testtesttest',      //合约名，即发行帐号
+        name: 'erase',               //新建一条数据方法
+        authorization: [{
+            actor: 'testtesttest',    //使用者帐号
+            permission: 'active'
+        }],
+        data: {
+            id: new Int64(0x00000004)
+        }
+    }]
+}).then(result => console.log(result))
+```
+
+#### 5- 查看所有数据
+
+```
+eos.getTableRows(true, '合约帐号', '使用者帐号', '数据表', '索引字段', 0, -1, 10)
+```
