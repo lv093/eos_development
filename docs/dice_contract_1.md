@@ -181,7 +181,7 @@ cleos push action dicedicedice withdraw '[ "testtest1114", "7.0000 DEV" ]' -p te
 
 5- 智能合约的权限管理
 
-[查看程序源码](http://eternum.io/ipfs/Qmcs6hRvjBVoCbzEW7pdjcokCvTEkjZpCEw5q2d7pWiTaQ)
+[查看程序源码](https://www.eternum.io/ipfs/QmWSVXGbNJWJgSvP93o1yNL3HcGjbkUvCHeMkMPTs9Qyrr)
 
 [解读随机数比较原理，点击这里](https://github.com/eoshackathon/eos_dapp_development_cn/blob/master/docs/randomization.md)
 
