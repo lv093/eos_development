@@ -16,7 +16,7 @@
     * [multi-index数据库操作代码模板](docs/db_module.md)
     * [井字游戏Tic-tac-toe智能合约](docs/tic-tac-toe_game.md)
     * [随机数发生器](docs/randomization.md)
-    * [Dice猜数字游戏](docs/dice_contract.md)
+    * [Dice猜数字游戏](docs/dice_contract_1.md)
     * [自动充值与提现](docs/exchange_deposit_withdrawal.md)
 * eosjs使用
     * [eosjs使用说明](docs/eosjs_tutorial.md)
