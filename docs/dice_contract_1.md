@@ -163,11 +163,14 @@ cleos get table dicedicedice dicedicedice account
 ```
 
 ##### 第八步：双方提现
+
 ```
 cleos push action dicedicedice withdraw '[ "testtest1112", "13.0000 DEV" ]' -p testtest1112
 
 cleos push action dicedicedice withdraw '[ "testtest1114", "7.0000 DEV" ]' -p testtest1114
 ```
+
+注：EOSIO 1.1.2 版本之前，该功能无法使用，是EOSIO的bug。
 
 ### 第二部分：解读dice合约
 #### 解读`dice`合约的目的：
@@ -181,7 +184,7 @@ cleos push action dicedicedice withdraw '[ "testtest1114", "7.0000 DEV" ]' -p te
 
 5- 智能合约的权限管理
 
-[查看程序源码](https://www.eternum.io/ipfs/QmWSVXGbNJWJgSvP93o1yNL3HcGjbkUvCHeMkMPTs9Qyrr)
+[查看dice.cpp程序源码](https://www.eternum.io/ipfs/QmWSVXGbNJWJgSvP93o1yNL3HcGjbkUvCHeMkMPTs9Qyrr)
 
 [解读随机数比较原理，点击这里](https://github.com/eoshackathon/eos_dapp_development_cn/blob/master/docs/randomization.md)
 
