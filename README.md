@@ -38,4 +38,4 @@
     * [HTTP API调用文档](docs/http_api_doc.md)
     * [BP节点链接](docs/bp_urls.md)
 * SEA GULL
-    * [SEA GULL First](docs/First.md)
+    * [Nginx Install Tutorial](docs/Nginx_Install.md)
